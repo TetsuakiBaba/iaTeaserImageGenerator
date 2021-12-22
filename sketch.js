@@ -32,7 +32,7 @@ function isSmartPhone() {
 }
 
 function preload() {
-    image_logo = loadImage("./iaLogo.png");
+    image_logo = loadImage("./ialogo.png");
 }
 
 function setup() {
