@@ -182,9 +182,9 @@ class adadaGeometry {
         //  affiliation
         let text_width = this.canvas.textWidth(this.name);
         this.canvas.textSize(font_size_small);
-        this.canvas.textAlign(CENTER, CENTER);
+        this.canvas.textAlign(CENTER, TOP);
         this.canvas.text(this.affiliation,
-            this.canvas.width / 2, this.canvas.height / 2 + font_size / 2);
+            this.canvas.width / 2, this.canvas.height / 2 + 1.2 * font_size / 2);
 
         // Display Conference Information
         // this.canvas.fill(255);
@@ -196,6 +196,11 @@ class adadaGeometry {
         // this.canvas.text("International Conference for Asia Digital Art and Design 2020", 1200, this.canvas.height - 60);
 
 
+        this.canvas.strokeWeight(1);
+        this.canvas.stroke(150);
+        this.canvas.noFill();
+        this.canvas.textSize(font_size);
+        //this.canvas.line(0, this.canvas.height / 2 + font_size / 2, this.canvas.width, this.canvas.height / 2 + font_size / 2);
         image(this.canvas, _x, _y, _w, _h);
     }
 };

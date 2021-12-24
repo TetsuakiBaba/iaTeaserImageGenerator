@@ -11,11 +11,13 @@ selectGfont({
 });
 
 
+var g_font = '';
 sGFselecionado = function (fonte, variante, json) {
     console.log('fonte', fonte);
     console.log('variante', variante);
     console.log('json', json);
     geometry.setFont(fonte);
+    g_font = fonte;
     //geometry.setWeight(weight);
 };
 
@@ -63,8 +65,19 @@ function setup() {
     select('#number_geometry').changed(changedGeometry);
     select('#select_color_scheme').changed(changedColorScheme);
     select('#button_curved').mouseClicked(setCurved);
+
     geometry.setColorScheme(document.getElementById("select_color_scheme").value);
 
+
+    /* js部 */
+    var obj = document.getElementById('selectGFont');
+    // 選択されている値の番号を取得
+    var idx = obj.selectedIndex;
+    // 値を取得
+    g_font = obj.options[idx].text;
+    g_font = g_font.replace('serif', '');
+    console.log(g_font)
+    geometry.setFont(g_font);
 }
 
 function setCurved() {

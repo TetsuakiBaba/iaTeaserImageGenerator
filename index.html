@@ -109,7 +109,8 @@
                 <div class="row g-2 mt-3 mb-3">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="input_name" placeholder="Voices" value="VOICES">
+                            <input type="text" class="form-control" id="input_name" placeholder="Voices"
+                                value="design me">
                             <label for="floatingInputGrid">title</label>
                         </div>
 
@@ -127,13 +128,17 @@
 
                 <!-- Fonte GOOGLE -->
                 <div class="row g-2 mt-3 mb-3">
-                    <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="col-12">
                         <label><span class="selectGFontTotal"></span> Google Fonts Available</label>
                         <div class="input-group input-group-lg">
-                            <select id='selectGFont' data-default='Lato' class="form-control invisible"></select>
+                            <select id='selectGFont' data-default='Cormorant Garamond'
+                                class="form-control invisible"></select>
                             <div class="input-group-append">
                                 <select id='selectGFontVariante' data-default='regular' class="form-control invisible"
                                     id="selectWeight" onchange="onSelectWeight(this)" disabled></select>
+                            </div>
+                            <div class="input-group-append">
+
                             </div>
                         </div>
                     </div>
@@ -143,9 +148,9 @@
                     <input type="number" class="form-control" value=5 min=0 max=20 id="number_geometry">
                     <span class="input-group-text" for="inputGroupSelect01">Color Scheme</span>
                     <select class="form-select" id="select_color_scheme">
-                        <option value="#7BBADE,#93DE7F,#FFED5D,#F29E4A,#FF7050" selected>ia colorful</option>
-                        <option value="#1F1F1F, #595959, #8C8C8C, #D9D9D9, #F5F5F5">ia dark</option>
+                        <option value="#1F1F1F, #595959, #8C8C8C, #D9D9D9, #F5F5F5" selected>ia dark</option>
                         <option value="#F5F5F5, #D9D9D9, #8C8C8C, #595959, #1F1F1F">ia light</option>
+                        <option value="#F25CAF,#F4467B,#F8E80C,#8CBF86,#2981C0">holiday</option>
                     </select>
                     <input type="checkbox" class="btn-check" id="button_curved" autocomplete="off">
                     <label class="btn btn-outline-secondary" for="button_curved">Curved</label>
