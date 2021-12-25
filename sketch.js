@@ -1,26 +1,20 @@
 var pg;
 var geometry;
 var image_logo;
-
-selectGfont({
-    key: 'AIzaSyAQgrjj1umZWGOdEUFU5jz_cWYdWpvPc3A',
-    containerFonte: '#selectGFont',
-    containerVariante: '#selectGFontVariante',
-    sort: 'popularity',
-    onSelectFonte: 'sGFselecionado'
-});
-
-
 var g_font = '';
+
+
 sGFselecionado = function (fonte, variante, json) {
     console.log('fonte', fonte);
     console.log('variante', variante);
     console.log('json', json);
     geometry.setFont(fonte);
     g_font = fonte;
-    //geometry.setWeight(weight);
 };
 
+function onLoadedGFont() {
+    console.log("loaded")
+}
 function onSelectWeight(weight) {
     console.log(weight.value);
     geometry.setWeight(weight.value);
@@ -69,16 +63,27 @@ function setup() {
     geometry.setColorScheme(document.getElementById("select_color_scheme").value);
 
 
-    /* js部 */
-    var obj = document.getElementById('selectGFont');
-    // 選択されている値の番号を取得
-    var idx = obj.selectedIndex;
-    // 値を取得
-    g_font = obj.options[idx].text;
-    g_font = g_font.replace('serif', '');
-    console.log(g_font)
-    geometry.setFont(g_font);
+    selectGfont({
+        key: 'AIzaSyAQgrjj1umZWGOdEUFU5jz_cWYdWpvPc3A',
+        containerFonte: '#selectGFont',
+        containerVariante: '#selectGFontVariante',
+        sort: 'popularity',
+        onSelectFonte: 'sGFselecionado'
+    }).then(function () {
+        var obj = document.getElementById('selectGFont');
+        var idx = obj.selectedIndex;
+        g_font = obj.options[idx].text;
+        g_font = g_font.replace('serif', '');
+        console.log(g_font)
+        geometry.setFont(g_font);
+    }).catch(function (erro) {
+        console.error(erro);
+
+    });
+
 }
+
+
 
 function setCurved() {
     console.log(this.checked());
