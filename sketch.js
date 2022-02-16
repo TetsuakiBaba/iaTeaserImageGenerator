@@ -44,11 +44,21 @@ function setup() {
     } else {
         pg = createGraphics(1280, 720);
     }
+
+    // URLを取得
+    var url = new URL(window.location.href);
+    // URLSearchParamsオブジェクトを取得
+    var params = url.searchParams;
+    let title = params.get('title') == null ? 'design me' : params.get('title');
+    let abstract = params.get('abstract') == null ? 'here is abstract area.' : params.get('abstract');
+    console.log(title, abstract);
+
     geometry = new adadaGeometry(5, image_logo,
-        document.querySelector('#input_name').value,
-        document.querySelector('#input_affiliation').value
+        title, abstract
     );
     geometry.setColorScheme(document.querySelector('#select_color_scheme').value);
+    document.querySelector('#input_name').value = title;
+    document.querySelector('#input_affiliation').value = abstract;
 
 
     selectGfont({
