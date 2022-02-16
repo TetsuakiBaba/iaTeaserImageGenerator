@@ -85,6 +85,7 @@ class Spot {
 
 class adadaGeometry {
     constructor(_n, _image_logo, _title, _abstract) {
+        console.log(_n, _title, _abstract);
         this.c = [];
         if (isSmartPhone()) {
             this.canvas = createGraphics(1280, 720);
@@ -121,8 +122,6 @@ class adadaGeometry {
         for (let i = 0; i < this.spot.length; i++) {
             this.spot[i].c = this.c[int(random(this.c.length))];
         }
-
-
     }
     setFont(_font) {
         this.canvas.textFont(_font);
