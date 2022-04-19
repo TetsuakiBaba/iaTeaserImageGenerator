@@ -29,6 +29,7 @@ function isSmartPhone() {
 
 function preload() {
     image_logo = loadImage("./ialogo.png");
+
 }
 
 function setup() {
@@ -53,7 +54,9 @@ function setup() {
     let abstract = params.get('abstract') == null ? 'here is abstract area.' : params.get('abstract');
     console.log(title, abstract);
 
-    geometry = new adadaGeometry(5, image_logo,
+    geometry = new adadaGeometry(
+        document.querySelector("#number_geometry").value,
+        image_logo,
         title, abstract
     );
     geometry.setColorScheme(document.querySelector('#select_color_scheme').value);
@@ -87,6 +90,7 @@ function setup() {
     select('#number_geometry').changed(changedGeometry);
     select('#select_color_scheme').changed(changedColorScheme);
     select('#button_curved').mouseClicked(setCurved);
+
 
 
 }
@@ -139,6 +143,8 @@ function draw() {
     background(100);
     // return;
     geometry.draw(0, 0, width, height);
+
+
     // pg.background(255, 255, 0);
     // pg.noStroke();
     // pg.ellipse(pg.width / 2, pg.height / 2, 50, 50);
